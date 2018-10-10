@@ -1,0 +1,26 @@
+.signup-button {
+  height: 30px;
+  border-radius: 30px;
+  border: 1px solid #0099e5;
+  background: #0099e5;
+  color: white;
+  font-weight: bold;
+  padding: 0 15px;
+}
+
+.login-signup a {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-signup:hover {
+  cursor: pointer;
+}
+
+.nav-bar:hover {
+  cursor: pointer;
+}
+
+.nav-logo {
+  height: 20px;
+}
