@@ -1,15 +1,16 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions'
+import {
+  RECEIVE_CURRENT_USER
+} from '../actions/session_actions'
 
-const usersReducer= (state = {}, action) => {
+export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge({}, state, { [action.currentUser.id]: action.currentUser });
+      const user = action.currentUser
+      return merge({}, state, { [user.id]: user });
     default:
       return state
   }
 };
-
-export default usersReducer;
