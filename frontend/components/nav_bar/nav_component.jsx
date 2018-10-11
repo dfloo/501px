@@ -9,7 +9,7 @@ export default ({ currentUser, logout }) => {
   }
 
   const loggedOut = () => (
-    <div className='nav-bar' style={navBarStyle}>
+    <div className='nav-bar'>
       <div className='nav-left'>
         <Link to='/'>
           <img className='nav-logo' src={window.images.logo}/>

@@ -1,7 +1,10 @@
 .nav-bar {
   margin: 0;
-  padding: 12px;
-  border-bottom: 1px black;
+  padding: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 1px solid black;
+  box-shadow: 0 2px 3px -2px lightgrey;
   overflow: auto;
 }
 
