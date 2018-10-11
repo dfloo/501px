@@ -9,19 +9,45 @@ export default ({ currentUser, logout }) => {
     greetingBox.classList.add('hidden')
   }
 
+  const hideLoginButton = () => {
+    const loginButton = document.getElementById('login');
+    loginButton.classList.add('hidden');
+  }
+
+  const showLoginButton = () => {
+    const loginButton = document.getElementById('login');
+    loginButton.classList.remove('hidden');
+  }
+
+  const hideSignupButton = () => {
+    const signupButton = document.getElementById('signup');
+    signupButton.classList.add('hidden');
+  }
+
+  const showSignupButton = () => {
+    const signupButton = document.getElementById('signup');
+    signupButton.classList.remove('hidden');
+  }
+
   const loggedOut = () => (
     <div className='nav-bar'>
       <div className='nav-left'>
-        <Link to='/'>
+        <Link to='/' onClick={() => {showLoginButton(); showSignupButton()}}>
           <img className='nav-logo' src={window.images.logo}/>
         </Link>
       </div>
       <div className='nav-right'>
         <Link to='/login'>
-          <button className='login-button'>Log in</button>
+          <button id='login'
+            className='login-button'
+            onClick={() => {hideLoginButton(); showSignupButton()}}>Log in
+          </button>
         </Link>
         <Link to='/signup'>
-          <button className='signup-button'>Sign up</button>
+          <button id='signup'
+            className='signup-button'
+            onClick={() => {hideSignupButton(); showLoginButton()}}>Sign up
+          </button>
         </Link>
       </div>
     </div>

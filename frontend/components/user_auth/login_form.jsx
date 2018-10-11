@@ -57,7 +57,7 @@ class LoginForm extends React.Component {
           <button onClick={hideErrorsBox}>x</button>
         </div>
 
-        <div className='login-form'>
+        <form className='login-form' onSubmit={this.handleSubmit}>
           <h1>Log In to 501px</h1>
           <label htmlFor='login-email' >Email</label>
             <input id='login-email'
@@ -73,9 +73,7 @@ class LoginForm extends React.Component {
               type='password'
             />
           <br/>
-          <button
-            onClick={this.handleSubmit}>Log in
-          </button>
+          <button type='submit'>Log in</button>
           <br/>
 
           <button
@@ -89,7 +87,7 @@ class LoginForm extends React.Component {
           <h2>
             Don't have an account? <Link to='/signup'>Sign up</Link>
           </h2>
-        </div>
+        </form>
       </div>
     );
   }

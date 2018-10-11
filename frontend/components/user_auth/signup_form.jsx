@@ -57,7 +57,7 @@ class SignupForm extends React.Component {
           <button onClick={hideErrorsBox}>x</button>
         </div>
 
-        <div className='signup-form'>
+        <form className='signup-form' onSubmit={this.handleSubmit}>
           <h1>Join 501px</h1>
           <h2> Share your photos, get inspired, and grow your skills</h2>
           <br/>
@@ -75,16 +75,13 @@ class SignupForm extends React.Component {
             type='password'
           />
           <br/>
-          <button
-            className='signup-submit-button'
-            onClick={this.handleSubmit}>Sign up
-          </button>
+          <button type='submit'>Sign up</button>
           <br/>
           <h3>By signing up, you agree to our Terms of Service</h3>
           <h3>
             Already have an account? <Link to='/login'>Log in</Link>
           </h3>
-        </div>
+        </form>
       </div>
     );
   }
