@@ -3,10 +3,9 @@
   padding-left: 50px;
   padding-right: 50px;
   box-shadow: 0 2px 3px -2px lightgrey;
-  overflow: auto;
-  width: 92vw;
-  /* width: 600px; */
-  position: fixed;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 60px;
   top: 0;
 }
 
@@ -21,6 +20,12 @@
 .nav-logo {
   height: 20px;
   width: 80px;
+}
+
+.nav-avatar {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
 }
 
 .clearfix::after {
@@ -57,4 +62,36 @@ button:hover {
 
 a:hover  {
   cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown button {
+  background: none;
+  color: #71767a;
+  width: 150px;
+  height: 40px;
+  border: none;
+  text-align: left;
+}
+
+.dropdown-content {
+  width: 150px;
+  box-sizing: border-box;
+  padding: 10px;
+  display: none;
+  background: white;
+  position: absolute;
+  right: -10px;
+  z-index: 1;
+  box-shadow: 0 0 2px lightgrey;
+  border-radius: 3px;
+  overflow: visible;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
