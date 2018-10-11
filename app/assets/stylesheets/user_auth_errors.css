@@ -1,0 +1,44 @@
+.errors {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 10px;
+  position: absolute;
+  top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  align-items: center;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background: #FF3333;
+  z-index: 1;
+}
+
+.errors > button {
+  width: 25px;
+  height: 25px;
+  border-radius: 3px;
+  background: none;
+  border: none;
+  color: darkred;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.errors > button:hover {
+  color: black
+}
+
+.errors li {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}

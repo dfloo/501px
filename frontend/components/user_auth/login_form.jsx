@@ -32,9 +32,31 @@ class LoginForm extends React.Component {
     );
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.errors !== prevProps.errors) {
+      if (this.props.errors.length > 0) {
+        const errBox = document.getElementById('errors');
+        errBox.classList.remove('hidden');
+      }
+    }
+  }
+
   render() {
+
+    const hideErrorsBox = () => {
+      const errorsBox = document.getElementById('errors');
+      errorsBox.classList.add('hidden')
+    }
+
     return(
       <div className='login-main-container'>
+        <div id='errors' className='errors hidden'>
+          <ul>
+            <li>{this.renderErrors()}</li>
+          </ul>
+          <button onClick={hideErrorsBox}>x</button>
+        </div>
+
         <div className='login-form'>
           <h1>Log In to 501px</h1>
           <label htmlFor='login-email' >Email</label>
@@ -52,9 +74,17 @@ class LoginForm extends React.Component {
             />
           <br/>
           <button
-            className='login-submit-button'
             onClick={this.handleSubmit}>Log in
           </button>
+          <br/>
+
+          <button
+            onClick={() => this.props.login({
+              email: 'guest',
+              password:'password'
+            })}>Log in as Guest
+          </button>
+
           <br/>
           <h2>
             Don't have an account? <Link to='/signup'>Sign up</Link>

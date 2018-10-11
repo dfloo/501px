@@ -32,9 +32,31 @@ class SignupForm extends React.Component {
     );
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.errors !== prevProps.errors) {
+      if (this.props.errors.length > 0) {
+        const errBox = document.getElementById('errors');
+        errBox.classList.remove('hidden');
+      }
+    }
+  }
+
   render() {
+
+    const hideErrorsBox = () => {
+      const errorsBox = document.getElementById('errors');
+      errorsBox.classList.add('hidden')
+    }
+
     return(
       <div className='signup-main-container'>
+        <div id='errors' className='errors hidden'>
+          <ul>
+            <li>{this.renderErrors()}</li>
+          </ul>
+          <button onClick={hideErrorsBox}>x</button>
+        </div>
+
         <div className='signup-form'>
           <h1>Join 501px</h1>
           <h2> Share your photos, get inspired, and grow your skills</h2>
