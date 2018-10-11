@@ -57,6 +57,7 @@ class SignupForm extends React.Component {
             className='signup-submit-button'
             onClick={this.handleSubmit}>Sign up
           </button>
+          <br/>
           <h3>By signing up, you agree to our Terms of Service</h3>
           <h3>
             Already have an account? <Link to='/login'>Log in</Link>

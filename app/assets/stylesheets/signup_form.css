@@ -1,5 +1,5 @@
 .signup-main-container {
-  height: 100vh;
+  height: calc(100vh - 60px);
   background: #F8F8F8;
   /* background: lightgrey; */
   display: flex;

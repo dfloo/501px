@@ -4,12 +4,9 @@ import { Link } from 'react-router-dom';
 
 export default ({ currentUser, logout }) => {
 
-  const navBarStyle = {
-    backgroundImage: `url(${window.images.background})`
-  }
-
-  const uploadLinkStyle = {
-    backgroundImage: `url(${window.images.sprite})`
+  const hideGreetingBox = () => {
+    const greetingBox = document.getElementById('greeting');
+    greetingBox.classList.add('hidden')
   }
 
   const loggedOut = () => (
@@ -32,6 +29,10 @@ export default ({ currentUser, logout }) => {
 
   const loggedIn = () => (
     <div className='nav-bar'>
+      <div id='greeting' className='greeting'>
+        <h1>Welcome back, {currentUser.email}!</h1>
+        <button onClick={hideGreetingBox}>x</button>
+      </div>
       <div className='nav-left'>
         <Link to='/'>
           <img className='nav-logo' src={window.images.logo}/>

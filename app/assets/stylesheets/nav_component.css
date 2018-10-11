@@ -95,3 +95,47 @@ a:hover  {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.greeting {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 10px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  align-items: center;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background: #34bf49;
+  z-index: 1;
+}
+
+.greeting > button {
+  width: 25px;
+  height: 25px;
+  border-radius: 3px;
+  background: none;
+  border: none;
+  color: darkgreen;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.greeting > button:hover {
+  color: black
+}
+
+.greeting > h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
