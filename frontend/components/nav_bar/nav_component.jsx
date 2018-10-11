@@ -29,7 +29,7 @@ export default ({ currentUser, logout }) => {
   const loggedIn = () => (
     <nav className='nav-bar'>
       <h2 className='header-name'>
-        Welcome back, {currentUser.username}
+        Welcome back, {currentUser.email}
       </h2>
       <button className='header-button' onClick={logout}>
         Log out

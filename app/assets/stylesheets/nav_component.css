@@ -1,10 +1,13 @@
 .nav-bar {
-  margin: 0;
   padding: 15px;
   padding-left: 50px;
   padding-right: 50px;
   box-shadow: 0 2px 3px -2px lightgrey;
   overflow: auto;
+  width: 92vw;
+  /* width: 600px; */
+  position: fixed;
+  top: 0;
 }
 
 .nav-left {
@@ -34,7 +37,6 @@
   background: #0099e5;
   color: white;
   font-weight: bold;
-  /* padding: 0 15px; */
 }
 
 .signup-button:hover {

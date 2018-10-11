@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -34,34 +34,32 @@ class LoginForm extends React.Component {
 
   render() {
     return(
-      <div className='login-form-div'>
-        <h1>Log in to 501px</h1>
-          <label>Username:
-            <input
-              type='text'
-              value={this.state.username}
-              onChange={this.update('username')}
-              className='login-input'
-            />
-          </label>
-          <br/>
-          <label>Email:
-            <input
-              type='text'
-              value={this.state.email}
+      <div className='login-main-container'>
+        <div className='login-form'>
+          <h1>Log In to 501px</h1>
+          <label htmlFor='login-email' >Email</label>
+            <input id='login-email'
               onChange={this.update('email')}
-              className='login-input'
+              value={this.state.email}
+              type='text'
             />
-          </label>
           <br/>
-          <label>Password:
-            <input
-              type='password'
-              value={this.state.password}
+          <label htmlFor='login-password'>Password</label>
+            <input id='login-password'
               onChange={this.update('password')}
-              className='login-input'
+              value={this.state.password}
+              type='password'
             />
-          </label>
+          <br/>
+          <button
+            className='login-submit-button'
+            onClick={this.handleSubmit}>Log in
+          </button>
+          <br/>
+          <h2>
+            Don't have an account? <Link to='/signup'>Sign up</Link>
+          </h2>
+        </div>
       </div>
     );
   }

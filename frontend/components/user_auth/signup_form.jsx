@@ -1,10 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', email: '', password: '' };
+    this.state = { email: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,7 +17,7 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.login(user);
+    this.props.signup(user);
   }
 
   renderErrors() {
@@ -34,34 +34,34 @@ class SignupForm extends React.Component {
 
   render() {
     return(
-      <div className='login-form-div'>
-        <h1>Sign up for 501px</h1>
-          <label>Username:
-            <input
-              type='text'
-              value={this.state.username}
-              onChange={this.update('username')}
-              className='login-input'
-            />
-          </label>
+      <div className='signup-main-container'>
+        <div className='signup-form'>
+          <h1>Join 501px</h1>
+          <h2> Share your photos, get inspired, and grow your skills</h2>
           <br/>
-          <label>Email:
-            <input
-              type='text'
-              value={this.state.email}
-              onChange={this.update('email')}
-              className='login-input'
-            />
-          </label>
+          <label htmlFor='login-email'>Email</label>
+          <input id='login-email'
+            onChange={this.update('email')}
+            value={this.state.email}
+            type='text'
+          />
           <br/>
-          <label>Password:
-            <input
-              type='password'
-              value={this.state.password}
-              onChange={this.update('password')}
-              className='login-input'
-            />
-          </label>
+          <label htmlFor='signup-password'>Password</label>
+          <input id='signup-password'
+            onChange={this.update('password')}
+            value={this.state.password}
+            type='password'
+          />
+          <br/>
+          <button
+            className='signup-submit-button'
+            onClick={this.handleSubmit}>Sign up
+          </button>
+          <h3>By signing up, you agree to our Terms of Service</h3>
+          <h3>
+            Already have an account? <Link to='/login'>Log in</Link>
+          </h3>
+        </div>
       </div>
     );
   }

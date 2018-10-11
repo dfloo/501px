@@ -1,4 +1,4 @@
-.signup-main-container {
+.login-main-container {
   height: 100vh;
   background: #F8F8F8;
   /* background: lightgrey; */
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.signup-form {
+.login-form {
   margin: auto;
   width: 320px;
   border: 1px solid #E8E8E8;
@@ -19,14 +19,14 @@
   background: white;
 }
 
-.signup-form input {
+.login-form input {
   display: block;
   height: 30px;
   border: 1px solid #E0E0E0;
   border-radius: 3px;
 }
 
-.signup-form button {
+.login-form button {
   height: 40px;
   background: #34bf49;
   border: none;
@@ -36,7 +36,7 @@
   font-size: 18px;
 }
 
-.signup-form > h1 {
+.login-form > h1 {
   align-self: center;
   font-family: 'Roboto', sans-serif;
   font-size: 24px;
@@ -44,29 +44,22 @@
   padding-bottom: 20px;
 }
 
-.signup-form h2 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  text-align: center;
-  color: #71767a;
-}
-
-.signup-form h3 {
+.login-form h2 {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   text-align: center;
   color: #71767a;
 }
 
-.signup-form a:link {
+.login-form a:link {
   color: #0099e5
 }
 
-.signup-form a:visited {
+.login-form a:visited {
   color: #0099e5
 }
 
-.signup-form label {
+.login-form label {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   color: #71767a;
