@@ -35,6 +35,11 @@ class LoginForm extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.errors !== prevProps.errors) {
       if (this.props.errors.length > 0) {
+        const hideErrBox = () => {
+          const errBox = document.getElementById('errors');
+          errBox.classList.add('hidden')
+        }
+        setTimeout(hideErrBox, 3000);
         const errBox = document.getElementById('errors');
         errBox.classList.remove('hidden');
         const loginPw = document.getElementById('login-password');

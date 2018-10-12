@@ -66,6 +66,10 @@
   padding-left: 10px;
 }
 
+.nav-button:hover {
+  color: #0099e5;
+}
+
 button:hover {
   cursor: pointer;
 }
@@ -82,14 +86,14 @@ a:hover  {
 .dropdown button {
   background: none;
   color: #71767a;
-  width: 150px;
+  width: 140px;
   height: 40px;
   border: none;
   text-align: left;
 }
 
 .dropdown-content {
-  width: 150px;
+  width: 160px;
   box-sizing: border-box;
   padding: 10px;
   display: none;

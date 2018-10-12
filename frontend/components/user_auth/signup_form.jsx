@@ -36,6 +36,10 @@ class SignupForm extends React.Component {
     if (this.props.errors !== prevProps.errors) {
       if (this.props.errors.length > 0) {
         const errBox = document.getElementById('errors');
+        const hideErrBox = () => {
+          errBox.classList.add('hidden')
+        }
+        setTimeout(hideErrBox, 3000);
         errBox.classList.remove('hidden');
         const signupPw = document.getElementById('signup-password');
         if (signupPw) {
