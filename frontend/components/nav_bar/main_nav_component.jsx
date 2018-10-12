@@ -11,44 +11,10 @@ export default ({ currentUser, logout }) => {
 
   setTimeout(hideGreetingBox, 3000);
 
-  const hideLoginButton = () => {
-    const loginButton = document.getElementById('login');
-    loginButton.classList.add('hidden');
-  }
-
-  const showLoginButton = () => {
-    const loginButton = document.getElementById('login');
-    loginButton.classList.remove('hidden');
-  }
-
-  const hideSignupButton = () => {
-    const signupButton = document.getElementById('signup');
-    signupButton.classList.add('hidden');
-  }
-
-  const showSignupButton = () => {
-    const signupButton = document.getElementById('signup');
-    signupButton.classList.remove('hidden');
-  }
-
-  const showGreenSignupBtn = () => {
-    const signupButton = document.getElementById('green-signup');
-    signupButton.classList.remove('hidden');
-  }
-
-  const hideGreenSignupBtn = () => {
-    const signupButton = document.getElementById('green-signup');
-    signupButton.classList.add('hidden');
-  }
-
   const loggedOut = () => (
     <div className='nav-bar'>
       <div className='nav-left'>
-        <Link to='/' onClick={() => {
-            showLoginButton();
-            showSignupButton();
-            hideGreenSignupBtn();
-          }}>
+        <Link to='/'>
           <img className='nav-logo' src={window.images.logo}/>
         </Link>
         <Link to='/'>
@@ -63,27 +29,13 @@ export default ({ currentUser, logout }) => {
       </div>
       <div className='nav-right'>
         <Link to='/login'>
-          <button id='login'
-            className='login-button'
-            onClick={() => {
-              hideLoginButton();
-              hideSignupButton();
-              showGreenSignupBtn();
-            }}>Log in
+          <button id='login' className='login-button'>
+            Log in
           </button>
         </Link>
         <Link to='/signup'>
-          <button id='signup'
-            className='signup-button'
-            onClick={() => {hideSignupButton(); showLoginButton()}}>Sign up
-          </button>
-          <button id='green-signup'
-            className='signup-button hidden'
-            onClick={() => {
-              hideSignupButton();
-              hideGreenSignupBtn();
-              showLoginButton()
-            }}>Sign Up
+          <button id='signup' className='signup-button'>
+            Sign up
           </button>
         </Link>
       </div>

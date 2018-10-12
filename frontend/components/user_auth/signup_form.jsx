@@ -62,29 +62,6 @@ class SignupForm extends React.Component {
   }
 
   render() {
-
-    //refactor these methods into a shared file for nav signup and login
-
-    const showGreenSignupBtn = () => {
-      const signupButton = document.getElementById('green-signup');
-      signupButton.classList.remove('hidden');
-    }
-
-    const hideGreenSignupBtn = () => {
-      const signupButton = document.getElementById('green-signup');
-      signupButton.classList.add('hidden');
-    }
-
-    const hideLoginButton = () => {
-      const loginButton = document.getElementById('login');
-      loginButton.classList.add('hidden');
-    }
-
-    const showLoginButton = () => {
-      const loginButton = document.getElementById('login');
-      loginButton.classList.remove('hidden');
-    }
-
     const hideErrorsBox = () => {
       const errorsBox = document.getElementById('errors');
       errorsBox.classList.add('hidden')
@@ -121,9 +98,8 @@ class SignupForm extends React.Component {
           <br/>
           <h3>By signing up, you agree to our Terms of Service</h3>
           <h3>
-            Already have an account? <Link to='/login'
-              onClick={() => {showGreenSignupBtn(); hideLoginButton()}}
-            >Log in</Link>
+            Already have an account?&nbsp;
+            <Link to='/login'>Log in</Link>
           </h3>
         </form>
       </div>
