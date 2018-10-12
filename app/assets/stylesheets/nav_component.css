@@ -20,6 +20,7 @@
 .nav-logo {
   height: 20px;
   width: 80px;
+  padding-right: 5px;
 }
 
 .nav-avatar {
@@ -54,6 +55,15 @@
   background: none;
   color: #0099e5;
   border: none;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  color: #525558;
+  padding-left: 10px;
 }
 
 button:hover {
@@ -103,14 +113,14 @@ a:hover  {
   padding-left: 20px;
   padding-right: 10px;
   position: absolute;
+  top: 0;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   align-items: center;
   width: 300px;
-  border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 0 0 5px 5px;
   background: #34bf49;
   z-index: 1;
 }
@@ -138,4 +148,17 @@ a:hover  {
 
 .hidden {
   display: none;
+}
+
+#green-signup {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  height: 60px;
+  width: 83.33px;
+  border: none;
+  border-radius: 0;
+  background: #34bf49;
+  color: white;
+  font-weight: bold;
 }

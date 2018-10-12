@@ -5,16 +5,15 @@
   padding-left: 20px;
   padding-right: 10px;
   position: absolute;
-  top: 10px;
+  top: 0;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   align-items: center;
-  width: 300px;
-  border: 1px solid black;
-  border-radius: 3px;
-  background: #FF3333;
+  width: 500px;
+  border-radius: 0 0 5px 5px;
+  background: #ff4c4c;
   z-index: 1;
 }
 
@@ -36,6 +35,7 @@
 .errors li {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
+  font-size: 14px;
   color: white;
 }
 

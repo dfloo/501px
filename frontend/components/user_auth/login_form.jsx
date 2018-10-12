@@ -37,11 +37,47 @@ class LoginForm extends React.Component {
       if (this.props.errors.length > 0) {
         const errBox = document.getElementById('errors');
         errBox.classList.remove('hidden');
+        const loginPw = document.getElementById('login-password');
+        if (loginPw) {
+          loginPw.id = 'error';
+        }
+        const loginEmail = document.getElementById('login-email');
+        if (loginEmail) {
+          loginEmail.id ='error';
+        }
+        const emailLabel = document.getElementById('email-label');
+        if (emailLabel) {
+          emailLabel.id ='label-error';
+        }
+        const pwLabel = document.getElementById('pw-label');
+        if (pwLabel) {
+          pwLabel.id ='label-error';
+        }
       }
     }
   }
 
   render() {
+    const showGreenSignupBtn = () => {
+      const signupButton = document.getElementById('green-signup');
+      signupButton.classList.remove('hidden');
+    }
+
+    const hideGreenSignupBtn = () => {
+      const signupButton = document.getElementById('green-signup');
+      signupButton.classList.add('hidden');
+    }
+
+    const hideLoginButton = () => {
+      const loginButton = document.getElementById('login');
+      loginButton.classList.add('hidden');
+    }
+
+    const showLoginButton = () => {
+      const loginButton = document.getElementById('login');
+      loginButton.classList.remove('hidden');
+    }
+
 
     const hideErrorsBox = () => {
       const errorsBox = document.getElementById('errors');
@@ -59,14 +95,14 @@ class LoginForm extends React.Component {
 
         <form className='login-form' onSubmit={this.handleSubmit}>
           <h1>Log In to 501px</h1>
-          <label htmlFor='login-email' >Email</label>
+          <label id='email-label'>Email</label>
             <input id='login-email'
               onChange={this.update('email')}
               value={this.state.email}
               type='text'
             />
           <br/>
-          <label htmlFor='login-password'>Password</label>
+          <label id='pw-label'>Password</label>
             <input id='login-password'
               onChange={this.update('password')}
               value={this.state.password}
@@ -85,7 +121,10 @@ class LoginForm extends React.Component {
 
           <br/>
           <h2>
-            Don't have an account? <Link to='/signup'>Sign up</Link>
+            Don't have an account?
+            <Link to='/signup'
+              onClick={() => {hideGreenSignupBtn(); showLoginButton()}}
+            >Sign up</Link>
           </h2>
         </form>
       </div>

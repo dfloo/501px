@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'rails_12factor'
 gem 'pg'
 
+gem 'aws-sdk-s3', require: false
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record

@@ -37,11 +37,49 @@ class SignupForm extends React.Component {
       if (this.props.errors.length > 0) {
         const errBox = document.getElementById('errors');
         errBox.classList.remove('hidden');
+        const signupPw = document.getElementById('signup-password');
+        if (signupPw) {
+          signupPw.id = 'error';
+        }
+        const signupEmail = document.getElementById('signup-email');
+        if (signupEmail) {
+          signupEmail.id ='error';
+        }
+        const emailLabel = document.getElementById('email-label');
+        if (emailLabel) {
+          emailLabel.id ='label-error';
+        }
+        const pwLabel = document.getElementById('pw-label');
+        if (pwLabel) {
+          pwLabel.id ='label-error';
+        }
       }
     }
   }
 
   render() {
+
+    //refactor these methods into a shared file for nav signup and login
+
+    const showGreenSignupBtn = () => {
+      const signupButton = document.getElementById('green-signup');
+      signupButton.classList.remove('hidden');
+    }
+
+    const hideGreenSignupBtn = () => {
+      const signupButton = document.getElementById('green-signup');
+      signupButton.classList.add('hidden');
+    }
+
+    const hideLoginButton = () => {
+      const loginButton = document.getElementById('login');
+      loginButton.classList.add('hidden');
+    }
+
+    const showLoginButton = () => {
+      const loginButton = document.getElementById('login');
+      loginButton.classList.remove('hidden');
+    }
 
     const hideErrorsBox = () => {
       const errorsBox = document.getElementById('errors');
@@ -61,14 +99,14 @@ class SignupForm extends React.Component {
           <h1>Join 501px</h1>
           <h2> Share your photos, get inspired, and grow your skills</h2>
           <br/>
-          <label htmlFor='login-email'>Email</label>
-          <input id='login-email'
+          <label id='email-label'>Email</label>
+          <input id='signup-email'
             onChange={this.update('email')}
             value={this.state.email}
             type='text'
           />
           <br/>
-          <label htmlFor='signup-password'>Password</label>
+          <label id='pw-label'>Password</label>
           <input id='signup-password'
             onChange={this.update('password')}
             value={this.state.password}
@@ -79,7 +117,9 @@ class SignupForm extends React.Component {
           <br/>
           <h3>By signing up, you agree to our Terms of Service</h3>
           <h3>
-            Already have an account? <Link to='/login'>Log in</Link>
+            Already have an account? <Link to='/login'
+              onClick={() => {showGreenSignupBtn(); hideLoginButton()}}
+            >Log in</Link>
           </h3>
         </form>
       </div>
