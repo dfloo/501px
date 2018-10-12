@@ -6,7 +6,9 @@ export default ({ currentUser, logout }) => {
 
   const hideGreetingBox = () => {
     const greetingBox = document.getElementById('greeting');
-    greetingBox.classList.add('hidden')
+    if (greetingBox) {
+      greetingBox.classList.add('hidden')
+    }
   }
 
   setTimeout(hideGreetingBox, 3000);
