@@ -129,7 +129,7 @@ class LoginForm extends React.Component {
             Don't have an account?
             <Link to='/signup'
               onClick={() => {hideGreenSignupBtn(); showLoginButton()}}
-            >Sign up</Link>
+            >&nbsp;Sign up</Link>
           </h2>
         </form>
       </div>

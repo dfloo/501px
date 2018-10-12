@@ -1,11 +1,11 @@
 .nav-bar {
-  padding: 15px;
+  padding-top: 10px;
   padding-left: 50px;
   padding-right: 50px;
   box-shadow: 0 2px 3px -2px lightgrey;
   box-sizing: border-box;
   width: 100vw;
-  height: 60px;
+  height: 50px;
   top: 0;
 }
 
@@ -21,6 +21,7 @@
   height: 20px;
   width: 80px;
   padding-right: 5px;
+  padding-top: 5px;
 }
 
 .nav-avatar {
@@ -42,7 +43,8 @@
   border: 1px solid #0099e5;
   background: #0099e5;
   color: white;
-  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .signup-button:hover {
@@ -157,12 +159,13 @@ a:hover  {
 #green-signup {
   position: absolute;
   top: 0;
-  right: 50px;
-  height: 60px;
-  width: 83.33px;
+  right: 45px;
+  height: 50px;
+  width: 85px;
   border: none;
   border-radius: 0;
   background: #34bf49;
   color: white;
-  font-weight: bold;
+  font-size: 14px;
+  /* font-weight: bold; */
 }
