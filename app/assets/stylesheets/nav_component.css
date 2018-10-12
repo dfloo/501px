@@ -11,6 +11,7 @@
 
 .nav-left {
   float: left;
+  display: flex;
 }
 
 .nav-right {
@@ -66,6 +67,7 @@
   font-size: 15px;
   color: #525558;
   padding-left: 10px;
+  padding-top: 5px;
 }
 
 .nav-button:hover {
@@ -159,13 +161,12 @@ a:hover  {
 #green-signup {
   position: absolute;
   top: 0;
-  right: 45px;
+  right: 40px;
   height: 50px;
-  width: 85px;
+  width: 90px;
   border: none;
   border-radius: 0;
   background: #34bf49;
   color: white;
   font-size: 14px;
-  /* font-weight: bold; */
 }
