@@ -9,6 +9,8 @@ export default ({ currentUser, logout }) => {
     greetingBox.classList.add('hidden')
   }
 
+  setTimeout(hideGreetingBox, 3000);
+
   const hideLoginButton = () => {
     const loginButton = document.getElementById('login');
     loginButton.classList.add('hidden');
