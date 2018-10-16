@@ -82,6 +82,9 @@ export default ({ currentUser, logout }) => {
         <button className='upload-button'
           onClick={showUploadModal}>Upload
         </button>
+        <img className='upload-sprite'
+          src={window.images.upload_img}
+          onClick={showUploadModal}/>
       </div>
     </div>
   );

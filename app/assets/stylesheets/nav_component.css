@@ -73,7 +73,7 @@
 
 .upload-button {
   height: 50px;
-  width: 90px;
+  width: 110px;
   border: none;
   border-radius: 0;
   background: #34bf49;
@@ -81,6 +81,19 @@
   font-size: 14px;
   position: relative;
   top: -10px;
+  padding-left: 40px;
+}
+
+.upload-sprite {
+  position: absolute;
+  top: 15px;
+  right: 110px;
+  height: 18px;
+  width: 24px;
+}
+
+.upload-sprite:hover {
+  cursor: pointer;
 }
 
 .nav-button:hover {

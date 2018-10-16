@@ -27,12 +27,16 @@ export default class UploadPhotoForm extends React.Component {
 
   handleFile(e) {
     const file = e.currentTarget.files[0];
+    let photoTitle = file.name.split('.').slice(0, -1).join('.');
+    photoTitle = photoTitle.replace(/_/g, ' ');
+    photoTitle = photoTitle.replace(/-/g, ' ');
+    photoTitle = photoTitle.replace(/[0-9]/g, '');
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({
         photoFile: file,
         photoUrl: fileReader.result,
-        title: file.name.split('.').slice(0, -1).join('.')
+        title: photoTitle
       });
     };
 
@@ -44,12 +48,16 @@ export default class UploadPhotoForm extends React.Component {
 
   handleDrop(files) {
     const file = files[0];
+    let photoTitle = file.name.split('.').slice(0, -1).join('.');
+    photoTitle = photoTitle.replace(/_/g, ' ');
+    photoTitle = photoTitle.replace(/-/g, ' ');
+    photoTitle = photoTitle.replace(/[0-9]/g, '');
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({
         photoFile: file,
         photoUrl: fileReader.result,
-        title: file.name.split('.').slice(0, -1).join('.')
+        title: photoTitle
       })
     }
     if (file) {

@@ -14,14 +14,16 @@
 .upload-modal-content {
   background-color: #fefefe;
   border: 1px solid #888;
-  border-radius: 3px;
+  border-radius: 4px;
   height: 100%;
   position: relative;
+  box-sizing: border-box;
+  background-color: #fff;
 }
 
 .file-input-button {
   box-sizing: border-box;
-  border-radius: 3px;
+  border-radius: 4px;
   background-color: #0099e5;
   color: white;
   font-family: 'Roboto', sans-serif;
@@ -32,9 +34,9 @@
   display: block;
   margin: auto;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 8px;
   position: absolute;
-  top: calc(50% - 20px);
+  top: calc(50% - 30px);
   left: calc(50% - 90px);
 }
 
@@ -82,6 +84,7 @@
   margin-top: 5px;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
+  font-weight: 200;
 }
 
 .img-title-input:focus {
