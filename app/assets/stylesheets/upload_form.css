@@ -37,11 +37,23 @@
   left: calc(50% - 90px);
 }
 
+.file-input-button:hover {
+  cursor: pointer;
+}
+
 .file-upload-form {
   display: inline-block;
   margin: auto;
 }
 
-.file-input {
-  /* display: none; */
+.drag-drop-label {
+  color: #0099e5;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  position: absolute;
+  height: 40px;
+  width: 500px;
+  top: calc(50% + 40px);
+  left: calc(50% - 250px);
 }

@@ -13,6 +13,7 @@ export default class UploadPhotoForm extends React.Component {
     this.handleFile = this.handleFile.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.hideUploadModal = this.hideUploadModal.bind(this);
+    
   }
 
   handleInput(e) {
@@ -52,11 +53,15 @@ export default class UploadPhotoForm extends React.Component {
     );
   }
 
-  hideUploadModal (e) {
+  hideUploadModal(e) {
     const modal = document.getElementById('file-upload-modal');
     if (e.target == modal) {
       modal.classList.add('hidden')
     }
+  }
+
+  handleDrop(e) {
+
   }
 
   render() {
@@ -71,6 +76,9 @@ export default class UploadPhotoForm extends React.Component {
             <label htmlFor='file-input'
               className='file-input-button'>Select Photos
             </label>
+            <h1 className='drag-drop-label'>
+              Or drag & drop photos anywhere on this page
+            </h1>
             <input type='file'
               id='file-input'
               className='file-input'
