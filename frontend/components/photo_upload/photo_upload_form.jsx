@@ -14,6 +14,11 @@ export default class UploadPhotoForm extends React.Component {
     this.handleDrop = this.handleDrop.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.hideUploadModal = this.hideUploadModal.bind(this);
+    this.toggleHidden = this.toggleHidden.bind(this);
+  }
+
+  componentDidUpdate() {
+
   }
 
   handleInput(e) {
@@ -33,6 +38,7 @@ export default class UploadPhotoForm extends React.Component {
 
     if (file) {
       fileReader.readAsDataURL(file);
+      this.toggleHidden();
     }
   }
 
@@ -48,6 +54,7 @@ export default class UploadPhotoForm extends React.Component {
     }
     if (file) {
       fileReader.readAsDataURL(file);
+      this.toggleHidden();
     }
   }
 
@@ -82,6 +89,8 @@ export default class UploadPhotoForm extends React.Component {
 
     const modal = document.getElementById('file-upload-modal');
     modal.classList.add('hidden');
+
+    this.toggleHidden();
   }
 
   hideUploadModal(e) {
@@ -89,6 +98,20 @@ export default class UploadPhotoForm extends React.Component {
     if (e.target == modal) {
       modal.classList.add('hidden')
     }
+  }
+
+  toggleHidden() {
+    const fileInputBtn = document.getElementById('file-input-button');
+    const dragDropLabel = document.getElementById('drag-drop-label');
+    const imgPosDiv = document.getElementById('img-pos-div');
+    const uploadSubmitBtn = document.getElementById('upload-submit-btn');
+    const inputPosDiv = document.getElementById('input-pos-div');
+
+    fileInputBtn.classList.toggle('hidden');
+    dragDropLabel.classList.toggle('hidden');
+    imgPosDiv.classList.toggle('hidden');
+    uploadSubmitBtn.classList.toggle('hidden');
+    inputPosDiv.classList.toggle('hidden');
   }
 
 
@@ -104,7 +127,8 @@ export default class UploadPhotoForm extends React.Component {
           <Dropzone className="dropzone"
             onDrop={this.handleDrop}
             disableClick={true}>
-            <h1 className='drag-drop-label'>
+            <h1 id='drag-drop-label'
+              className='drag-drop-label'>
               Or drag & drop photos anywhere on this page
             </h1>
           </Dropzone>
@@ -113,6 +137,7 @@ export default class UploadPhotoForm extends React.Component {
             onSubmit={this.handleSubmit}>
 
             <label htmlFor='file-input'
+              id='file-input-button'
               className='file-input-button'>Select Photos
             </label>
             <input type='file'
@@ -120,25 +145,30 @@ export default class UploadPhotoForm extends React.Component {
               className='file-input hidden'
               onChange={this.handleFile}/>
 
-            <div className='input-pos-div'>
+            <div id='input-pos-div'
+              className='input-pos-div hidden'>
               <label htmlFor='upload-title-input'
                 className='upload-title-label'>Title
               </label>
-              <input className='upload-title-input'
-                id='upload-title-input'
+              <input id='upload-title-input'
+                className='upload-title-input'
                 type='text'
-                value={this.state.title}
                 onChange={this.handleInput}
                 value={this.state.title}/>
             </div>
 
-            <button className='upload-submit-btn'
+            <button id='upload-submit-btn'
+              className='upload-submit-btn hidden'
               onClick={this.handleSubmit}>Submit</button>
 
-            <div className='img-pos-div'>
+            <div id='img-pos-div'
+              className='img-pos-div hidden'>
               <div className='img-align-div'>
                 <img className='img-preview' src={this.state.photoUrl} />
               </div>
+              <input className='img-title-input'
+                onChange={this.handleInput}
+                value={this.state.title}/>
             </div>
 
           </form>

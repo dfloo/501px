@@ -121,7 +121,7 @@ class LoginForm extends React.Component {
 
           <button
             onClick={() => this.props.login({
-              email: 'guest',
+              email: 'guest@email.com',
               password:'password'
             })}>Log in as Guest
           </button>

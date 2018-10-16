@@ -54,7 +54,7 @@ export default ({ currentUser, logout }) => {
   const loggedIn = () => (
     <div className='nav-bar'>
       <div id='greeting' className='greeting'>
-        <h1>Welcome back, {currentUser.email}!</h1>
+        <h1>Welcome back, {currentUser.username}!</h1>
         <button onClick={hideGreetingBox}>x</button>
       </div>
       <div className='nav-left'>

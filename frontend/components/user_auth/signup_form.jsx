@@ -4,14 +4,25 @@ import { withRouter, Link } from 'react-router-dom';
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '' };
+    this.state = {
+      email: '',
+      username: '',
+      password: ''
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    if (field === 'email') {
+      return e => this.setState({
+        [field]: e.currentTarget.value,
+        username: e.currentTarget.value.split('@')[0]
+      });
+    } else {
+      return e => this.setState({
+        [field]: e.currentTarget.value
+      });
+    }
   }
 
   handleSubmit(e) {
