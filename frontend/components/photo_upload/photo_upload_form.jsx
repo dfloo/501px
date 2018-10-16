@@ -7,13 +7,14 @@ export default class UploadPhotoForm extends React.Component {
     this.state = {
       title: "",
       photoFile: null,
-      photoUrl: null
+      photoUrl: null,
+      files: []
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFile = this.handleFile.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleFile = this.handleFile.bind(this);
+    this.handleDrop = this.handleDrop.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.hideUploadModal = this.hideUploadModal.bind(this);
-    
   }
 
   handleInput(e) {
@@ -27,6 +28,21 @@ export default class UploadPhotoForm extends React.Component {
       this.setState({photoFile: file, photoUrl: fileReader.result});
     };
 
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
+  handleDrop(files) {
+    this.setState({
+      files
+    });
+
+    const file = files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({photoFile: file, photoUrl: fileReader.result})
+    }
     if (file) {
       fileReader.readAsDataURL(file);
     }
@@ -51,6 +67,19 @@ export default class UploadPhotoForm extends React.Component {
       (response) => console.log(response.message),
       (response) => console.log(response.responseJSON)
     );
+
+    this.setState({
+      title: "",
+      photoFile: null,
+      photoUrl: null,
+      files: []
+    }, () => {
+      const fileInput = document.getElementById('file-input');
+      fileInput.value = ''
+    }, () => {
+      const modal = document.getElementById('file-upload-modal');
+      modal.classList.add('hidden');
+    });
   }
 
   hideUploadModal(e) {
@@ -60,9 +89,7 @@ export default class UploadPhotoForm extends React.Component {
     }
   }
 
-  handleDrop(e) {
 
-  }
 
   render() {
 
@@ -71,23 +98,36 @@ export default class UploadPhotoForm extends React.Component {
         className='hidden'
         onClick={this.hideUploadModal}>
         <div className='upload-modal-content'>
+
+          <Dropzone className="dropzone"
+            onDrop={this.handleDrop}>
+            <h1 className='drag-drop-label'>
+              Or drag & drop photos anywhere on this page
+            </h1>
+          </Dropzone>
+
           <form className='file-upload-form'
             onSubmit={this.handleSubmit}>
             <label htmlFor='file-input'
               className='file-input-button'>Select Photos
             </label>
-            <h1 className='drag-drop-label'>
-              Or drag & drop photos anywhere on this page
-            </h1>
             <input type='file'
               id='file-input'
               className='file-input'
               onChange={this.handleFile}/>
             <input type='text'
               value={this.state.title}
-              onChange={this.handleInput}/>
-            <button onClick={this.handleSubmit}>Submit</button>
+              onChange={this.handleInput}
+              value={this.state.title}/>
+            <button className='upload-submit'
+              onClick={this.handleSubmit}>Submit</button>
+            <div className='img-position-div'>
+              <div className='img-align-div'>
+                <img className='img-preview' src={this.state.photoUrl} />
+              </div>
+            </div>
           </form>
+
         </div>
       </div>
     );
