@@ -7,6 +7,7 @@ import LoginNavContainer from './nav_bar/login_nav_container';
 import LoginFormContainer from './user_auth/login_form_container';
 import SignupNavContainer from './nav_bar/signup_nav_container';
 import SignupFormContainer from './user_auth/signup_form_container';
+import PhotoUploadContainer from './photo_upload/photo_upload_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
@@ -22,7 +23,21 @@ const App = () => (
       <AuthRoute path='/signup' component={SignupFormContainer} />
       <Redirect to='/' />
     </Switch>
+    <PhotoUploadContainer />
   </div>
 );
 
 export default App;
+
+//
+// export default App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       photos: {},
+//       users: {}
+//     };
+//     // this.fetchPhotos = this.fetchPhotos.bind(this);
+//   }
+//
+// }

@@ -11,6 +11,13 @@ export default ({ currentUser, logout }) => {
     }
   }
 
+  const showUploadModal = () => {
+    const modal = document.getElementById('file-upload-modal');
+    if (modal) {
+      modal.classList.remove('hidden')
+    }
+  }
+
   setTimeout(hideGreetingBox, 3000);
 
   const loggedOut = () => (
@@ -72,6 +79,9 @@ export default ({ currentUser, logout }) => {
             <li><button onClick={logout}>Logout</button></li>
           </ul>
         </div>
+        <button className='upload-button'
+          onClick={showUploadModal}>Upload
+        </button>
       </div>
     </div>
   );

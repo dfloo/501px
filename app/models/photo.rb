@@ -14,7 +14,7 @@ class Photo < ApplicationRecord
 
   # validate :ensure_photo
 
-  has_one_attached :photo
+  has_one_attached :attachedPhoto
 
   # def ensure_photo
   #   unless self.photo.attached?

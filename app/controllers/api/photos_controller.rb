@@ -5,18 +5,29 @@ class Api::PhotosController < ApplicationController
     render :index
   end
 
+  def show
+    @post = Photo.find(params[:id])
+    render :show
+  end
+
   def create
-    post = Photo.new(post_params)
-    if post.save
+    photo = Photo.new(post_params)
+    if photo.save
       render json: {message: "Photo saved successfully"}
     else
-      render json: post.errors.full_messages, status: 422
+      render json: photo.errors.full_messages, status: 422
     end
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :photo)
+    params.require(:photo).permit(:title, :user_id, :attachedPhoto)
   end
 end
