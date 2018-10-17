@@ -28,12 +28,12 @@ export default class PhotoIndex extends React.Component {
 
     if (this.props.photos) {
       const photos = Object.values(this.props.photos)
-      // debugger
       return (
         <div className='photo-index-div'>
           <div className='photo-index-content'>
             <Gallery images={photos}
-              enableLightbox={true}
+              onClickThumbnail
+              enableLightbox={false}
               enableImageSelection={false}
               rowHeight={280}
               margin={5}/>
@@ -47,15 +47,3 @@ export default class PhotoIndex extends React.Component {
     }
   }
 }
-
-
-// const photos = Object.values(this.props.photos).map(photo => {
-//   return (
-//     <PhotoIndexItem
-//       key={photo.id}
-//       photo={photo} />
-//   );
-// });
-// <ul className='photo-index-ul'>
-//   {photos}
-// </ul>

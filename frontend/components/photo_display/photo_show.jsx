@@ -8,17 +8,24 @@ export default class PhotoShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchPhoto(this.props.match.params.photoId);
   }
 
   render() {
     const photo = this.props.photo;
-    debugger
     if (this.props.photo) {
       return (
-        <div className='photo-show-div'>
-          <img src={photo.src} />
+        <div id='photo-show-modal'
+          className=''>
+          <div className='photo-show-modal-content'>
+            <div className='photo-img'>
+              <img src={photo.src} />
+            </div>
+            <div className='photo-attributes'>
+              <h1>Title</h1>
+              <h1>Description</h1>
+            </div>
+          </div>
         </div>
       );
     } else {
