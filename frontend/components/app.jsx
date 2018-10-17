@@ -9,6 +9,7 @@ import SignupNavContainer from './nav_bar/signup_nav_container';
 import SignupFormContainer from './user_auth/signup_form_container';
 import PhotoUploadContainer from './photo_upload/photo_upload_container';
 import PhotoIndexContainer from './photo_display/photo_index_container';
+import PhotoShowContainer from './photo_display/photo_show_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
@@ -22,7 +23,9 @@ const App = () => (
     <Switch>
       <AuthRoute path='/login' component={LoginFormContainer} />
       <AuthRoute path='/signup' component={SignupFormContainer} />
-      <Route path='/photos' component={PhotoIndexContainer} />
+      <Route exact path='/photos' component={PhotoIndexContainer} />
+      <Route exact path='/photos/:photoId'
+        component={PhotoShowContainer} />
       <Redirect to='/' />
     </Switch>
     <PhotoUploadContainer />

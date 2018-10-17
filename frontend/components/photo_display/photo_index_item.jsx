@@ -6,7 +6,7 @@ const PhotoIndexItem = ({ photo }) => {
   return (
     <li className='index-photo-li'>
       <img className='index-photo'
-        src={photo.photoUrl} />
+        src={photo.src} />
     </li>);
 };
 

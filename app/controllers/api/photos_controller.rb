@@ -6,7 +6,8 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
-    @photos = Photo.find(params[:id])
+    @photo = Photo.find(params[:id])
+    # debugger
     render :show
   end
 

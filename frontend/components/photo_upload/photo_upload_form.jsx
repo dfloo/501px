@@ -7,7 +7,7 @@ export default class UploadPhotoForm extends React.Component {
     this.state = {
       title: "",
       photoFile: null,
-      photoUrl: null
+      src: null
     }
     this.handleInput = this.handleInput.bind(this);
     this.handleFile = this.handleFile.bind(this);
@@ -35,7 +35,7 @@ export default class UploadPhotoForm extends React.Component {
     fileReader.onloadend = () => {
       this.setState({
         photoFile: file,
-        photoUrl: fileReader.result,
+        src: fileReader.result,
         title: photoTitle
       });
     };
@@ -56,7 +56,7 @@ export default class UploadPhotoForm extends React.Component {
     fileReader.onloadend = () => {
       this.setState({
         photoFile: file,
-        photoUrl: fileReader.result,
+        src: fileReader.result,
         title: photoTitle
       })
     }
@@ -89,7 +89,7 @@ export default class UploadPhotoForm extends React.Component {
     this.setState({
       title: "",
       photoFile: null,
-      photoUrl: null
+      src: null
     }, () => {
       const fileInput = document.getElementById('file-input');
       fileInput.value = ''
@@ -177,7 +177,7 @@ export default class UploadPhotoForm extends React.Component {
             <div id='img-pos-div'
               className='img-pos-div hidden'>
               <div className='img-align-div'>
-                <img className='img-preview' src={this.state.photoUrl} />
+                <img className='img-preview' src={this.state.src} />
               </div>
               <input className='img-title-input'
                 onChange={this.handleInput}
