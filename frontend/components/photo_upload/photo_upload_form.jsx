@@ -104,7 +104,12 @@ export default class UploadPhotoForm extends React.Component {
   hideUploadModal(e) {
     const modal = document.getElementById('file-upload-modal');
     if (e.target == modal) {
-      modal.classList.add('hidden')
+      if (
+        confirm(`This photo has not been uploaded to 501px yet
+          \nAre you sure you want to continue?`)
+      ) {
+        modal.classList.add('hidden')
+      }
     }
   }
 

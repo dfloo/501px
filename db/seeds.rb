@@ -7,3 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(email: 'guest@email.com', username:'Guest', password: 'password')
+User.create(email: 'devin.p.flood@gmail.com', username:'DevO', password: 'password')
+User.create(email: 'cruella@email.com', username:'C. de Ville', password: 'password')
+User.create(email: 'skaterboi@email.com', username:'T_Hawk', password: 'password')
+User.create(email: 'chemE@email.com', username:'ChE', password: 'password')
+User.create(email: 'neil.armstrong@email.com', username:'MoonMan', password: 'password')
+User.create(email: 'alex.honnold@email.com', username:'FreeSolo', password: 'password')

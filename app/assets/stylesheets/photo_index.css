@@ -1,0 +1,25 @@
+.photo-index-div {
+  display: flex;
+  justify-content: center;
+}
+
+.photo-index-ul {
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.photo-index-li {
+  flex-grow: 1
+}
+
+.index-photo {
+  display: block;
+  max-width: 320px;
+  max-height: 180px;
+  width: auto;
+  height: auto;
+  padding: 5px;
+}
