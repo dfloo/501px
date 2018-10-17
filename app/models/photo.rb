@@ -7,18 +7,26 @@
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  width      :integer
+#  height     :integer
 #
 
 class Photo < ApplicationRecord
   validates :user_id, :title, presence: true
 
-  validate :ensure_photo
-
   has_one_attached :attachedPhoto
 
-  def ensure_photo
-    unless self.photo.attached?
-      errors[:photo] << 'must be attached'
-    end
+  after_initialize :set_width, :set_height
+
+  def set_width
+    self.width ||= ActiveStorage::Analyzer::ImageAnalyzer
+      .new(self.attachedPhoto)
+      .metadata[:width].to_i
+  end
+
+  def set_height
+    self.height ||= ActiveStorage::Analyzer::ImageAnalyzer
+      .new(self.attachedPhoto)
+      .metadata[:height].to_i
   end
 end
