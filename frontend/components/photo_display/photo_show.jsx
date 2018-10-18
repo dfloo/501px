@@ -22,8 +22,28 @@ export default class PhotoShow extends React.Component {
               <img src={photo.src} />
             </div>
             <div className='photo-attributes'>
-              <h1>Title</h1>
-              <h1>Description</h1>
+              <div className='show-user-div'>
+                <img className='show-avatar' src={window.images.avatar}/>
+                <div className='show-username-follow'>
+                  <h1>{this.props.photo.username}</h1>
+                  <button>Follow</button>
+                </div>
+              </div>
+              <div className='likes-button-div'>
+                <img className='show-likes-heart'
+                  src={window.images.white_heart}/>
+                <button>1,476</button>
+              </div>
+              <div className='likes-info-div'>
+                <img className='show-likes-heart2'
+                  src={window.images.solid_heart}/>
+                <h2>user and 1467 others.</h2>
+              </div>
+
+              <div className='show-info-div'>
+                <h1>{this.props.photo.title}</h1>
+                <h2>{this.props.photo.description}</h2>
+              </div>
             </div>
           </div>
         </div>

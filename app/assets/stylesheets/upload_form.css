@@ -169,7 +169,8 @@
   border-radius: 3px;
   border: 1px solid rgba(185,193,199,0.5);;
   font-size: 14px;
+  font-family: 'Roboto', sans-serif;
   color: #525558;
-  height: 30px;
+  height: 110px;
   padding: 4px;
 }

@@ -10,11 +10,13 @@ import SignupFormContainer from './user_auth/signup_form_container';
 import PhotoUploadContainer from './photo_upload/photo_upload_container';
 import PhotoIndexContainer from './photo_display/photo_index_container';
 import PhotoShowContainer from './photo_display/photo_show_container';
+import SplashPageContainer from './splash_page/splash_page_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
 const App = () => (
   <div className='main-body'>
+    <SplashPageContainer />
     <Switch>
       <AuthRoute path='/login' component={LoginNavContainer} />
       <AuthRoute path='/signup' component={SignupNavContainer} />
@@ -26,7 +28,6 @@ const App = () => (
       <Route exact path='/photos' component={PhotoIndexContainer} />
       <Route exact path='/photos/:photoId'
         component={PhotoShowContainer} />
-      <Redirect to='/' />
     </Switch>
     <PhotoUploadContainer />
   </div>

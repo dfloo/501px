@@ -18,10 +18,6 @@ export default class UploadPhotoForm extends React.Component {
     this.toggleHidden = this.toggleHidden.bind(this);
   }
 
-  componentDidUpdate() {
-
-  }
-
   handleInput(field) {
     return (e) => {
       this.setState({[field]: e.currentTarget.value});
@@ -78,18 +74,18 @@ export default class UploadPhotoForm extends React.Component {
     if (this.state.photoFile) {
       formData.append('photo[attachedPhoto]', this.state.photoFile);
     }
-    debugger
+
     this.props.createPhoto(formData);
 
-    // this.setState({
-    //   title: "",
-    //   description: "",
-    //   photoFile: null,
-    //   src: null
-    // }, () => {
-    //   const fileInput = document.getElementById('file-input');
-    //   fileInput.value = ''
-    // });
+    this.setState({
+      title: "",
+      description: "",
+      photoFile: null,
+      src: null
+    }, () => {
+      const fileInput = document.getElementById('file-input');
+      fileInput.value = ''
+    });
 
     const modal = document.getElementById('file-upload-modal');
     modal.classList.add('hidden');
@@ -104,6 +100,16 @@ export default class UploadPhotoForm extends React.Component {
         confirm(`This photo has not been uploaded to 501px yet
           \nAre you sure you want to continue?`)
       ) {
+        this.setState({
+          title: "",
+          description: "",
+          photoFile: null,
+          src: null
+        }, () => {
+          const fileInput = document.getElementById('file-input');
+          fileInput.value = ''
+        });
+        this.toggleHidden();
         modal.classList.add('hidden')
       }
     }
@@ -171,7 +177,8 @@ export default class UploadPhotoForm extends React.Component {
               <textarea id='upload-description-input'
                 className='upload-description-input'
                 onChange={this.handleInput('description')}
-                value={this.state.description}>
+                value={this.state.description}
+                rows='5'>
               </textarea>
             </div>
 

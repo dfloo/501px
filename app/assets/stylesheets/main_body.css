@@ -1,4 +1,9 @@
 .main-body {
+  /* padding: 50px; */
   display: flex;
   flex-direction: column;
+}
+
+.sticky + .main-body {
+  padding-top: 100px;
 }

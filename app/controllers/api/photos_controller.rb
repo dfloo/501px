@@ -11,7 +11,6 @@ class Api::PhotosController < ApplicationController
   end
 
   def create
-    debugger
     photo = Photo.new(post_params)
     if photo.save
       render json: {message: "Photo saved successfully"}
@@ -29,6 +28,8 @@ class Api::PhotosController < ApplicationController
   private
 
   def post_params
-    params.require(:photo).permit(:title, :description, :user_id, :attachedPhoto  )
+    params.require(:photo).permit(
+      :title, :description, :user_id, :attachedPhoto
+    )
   end
 end

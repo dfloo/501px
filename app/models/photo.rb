@@ -17,6 +17,8 @@ class Photo < ApplicationRecord
 
   has_one_attached :attachedPhoto
 
+  belongs_to :user
+
   after_initialize :set_width, :set_height
 
   def set_width

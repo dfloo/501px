@@ -24,7 +24,7 @@ export default ({ currentUser, logout }) => {
     <div className='nav-bar'>
       <div className='nav-left'>
         <Link to='/'>
-          <img className='nav-logo' src={window.images.logo}/>
+          <img className='nav-logo' src={window.images.logo_dark}/>
         </Link>
         <Link to='/'>
           <button className='nav-button'>Discover</button>
@@ -59,7 +59,7 @@ export default ({ currentUser, logout }) => {
       </div>
       <div className='nav-left'>
         <Link to='/'>
-          <img className='nav-logo' src={window.images.logo}/>
+          <img className='nav-logo' src={window.images.logo_dark}/>
         </Link>
         <Link to='/'>
           <button className='nav-button'>Discover</button>

@@ -1,12 +1,20 @@
 .nav-bar {
+  /* overflow: hidden;
+  background-color: grey; */
   padding-top: 10px;
   padding-left: 50px;
   padding-right: 40px;
   box-shadow: 0 2px 3px -2px lightgrey;
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   height: 50px;
   top: 0;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .nav-left {
@@ -45,6 +53,7 @@
   border: 1px solid #0099e5;
   background: #0099e5;
   color: white;
+  font-weight: 700;
   display: inline-block;
   vertical-align: middle;
 }

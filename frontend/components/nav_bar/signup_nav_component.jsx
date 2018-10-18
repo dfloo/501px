@@ -12,7 +12,7 @@ class SignupNav extends React.Component {
       <div className='nav-bar'>
         <div className='nav-left'>
           <Link to='/'>
-            <img className='nav-logo' src={window.images.logo}/>
+            <img className='nav-logo' src={window.images.logo_dark}/>
           </Link>
           <Link to='/'>
             <button className='nav-button'>Discover</button>
