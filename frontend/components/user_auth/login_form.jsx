@@ -18,6 +18,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.login(user);
+    this.props.history.push('/photos')
   }
 
   renderErrors() {

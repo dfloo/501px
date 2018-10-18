@@ -13,6 +13,7 @@ import PhotoShowContainer from './photo_display/photo_show_container';
 import SplashPageContainer from './splash_page/splash_page_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
+// <Route exact path='/' component={SplashPageContainer} />
 
 const App = () => (
   <div className='main-body'>

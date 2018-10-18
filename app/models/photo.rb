@@ -13,13 +13,13 @@
 #
 
 class Photo < ApplicationRecord
-  validates :user_id, :title, presence: true
+  validates :title, presence: true
 
   has_one_attached :attachedPhoto
 
   belongs_to :user
 
-  after_initialize :set_width, :set_height
+  before_save :set_width, :set_height
 
   def set_width
     self.width ||= ActiveStorage::Analyzer::ImageAnalyzer
