@@ -1,93 +1,110 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+export default class MainNav extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default ({ currentUser, logout }) => {
+    this.hideGreetingBox = this.hideGreetingBox.bind(this);
+    this.showUploadModal = this.showUploadModal.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
 
-  const hideGreetingBox = () => {
+  hideGreetingBox() {
     const greetingBox = document.getElementById('greeting');
     if (greetingBox) {
       greetingBox.classList.add('hidden')
     }
   }
 
-  const showUploadModal = () => {
+  showUploadModal() {
     const modal = document.getElementById('file-upload-modal');
     if (modal) {
       modal.classList.remove('hidden')
     }
   }
 
-  setTimeout(hideGreetingBox, 3000);
+  handleLogout() {
+    this.props.logout();
+    this.props.history.push('/');
+  }
 
-  const loggedOut = () => (
-    <div className='nav-bar'>
-      <div className='nav-left'>
-        <Link to='/'>
-          <img className='nav-logo' src={window.images.logo_dark}/>
-        </Link>
-        <Link to='/'>
-          <button className='nav-button'>Discover</button>
-        </Link>
-        <Link to='/'>
-          <button className='nav-button'>About</button>
-        </Link>
-        <Link to='/'>
-          <button className='nav-button'>Studio</button>
-        </Link>
-      </div>
-      <div className='nav-right'>
-        <Link to='/login'>
-          <button id='login' className='login-button'>
-            Log in
-          </button>
-        </Link>
-        <Link to='/signup'>
-          <button id='signup' className='signup-button'>
-            Sign up
-          </button>
-        </Link>
-      </div>
-    </div>
-  );
+  componentDidMount() {
+    setTimeout(this.hideGreetingBox, 3000);
+  }
 
-  const loggedIn = () => (
-    <div className='nav-bar'>
-      <div id='greeting' className='greeting'>
-        <h1>Welcome back, {currentUser.username}!</h1>
-        <button onClick={hideGreetingBox}>x</button>
-      </div>
-      <div className='nav-left'>
-        <Link to='/'>
-          <img className='nav-logo' src={window.images.logo_dark}/>
-        </Link>
-        <Link to='/'>
-          <button className='nav-button'>Discover</button>
-        </Link>
-        <Link to='/'>
-          <button className='nav-button'>About</button>
-        </Link>
-        <Link to='/'>
-          <button className='nav-button'>Studio</button>
-        </Link>
-      </div>
-      <div className='nav-right'>
-        <div className='dropdown'>
-          <img className='nav-avatar' src={window.images.avatar}/>
-          <ul className='dropdown-content'>
-            <li><button>My Profile</button></li>
-            <li><button onClick={logout}>Logout</button></li>
-          </ul>
+  render() {
+    debugger
+    if (this.props.currentUser) {
+      return (
+        <div className='nav-bar'>
+          <div id='greeting' className='greeting'>
+            <h1>Welcome back, {this.props.currentUser.username}!</h1>
+            <button onClick={this.hideGreetingBox}>x</button>
+          </div>
+          <div className='nav-left'>
+            <Link to='/'>
+              <img className='nav-logo' src={window.images.logo_dark}/>
+            </Link>
+            <Link to='/'>
+              <button className='nav-button'>Discover</button>
+            </Link>
+            <Link to='/'>
+              <button className='nav-button'>About</button>
+            </Link>
+            <Link to='/'>
+              <button className='nav-button'>Studio</button>
+            </Link>
+          </div>
+          <div className='nav-right'>
+            <div className='dropdown'>
+              <img className='nav-avatar' src={window.images.avatar}/>
+              <ul className='dropdown-content'>
+                <li><button>My Profile</button></li>
+                <li><button onClick={this.handleLogout}>Logout</button></li>
+              </ul>
+            </div>
+            <button className='upload-button'
+              onClick={this.showUploadModal}>Upload
+            </button>
+            <img className='upload-sprite'
+              src={window.images.upload_img}
+              onClick={this.showUploadModal}/>
+          </div>
         </div>
-        <button className='upload-button'
-          onClick={showUploadModal}>Upload
-        </button>
-        <img className='upload-sprite'
-          src={window.images.upload_img}
-          onClick={showUploadModal}/>
-      </div>
-    </div>
-  );
+      );
 
-  return currentUser ? loggedIn() : loggedOut();
-};
+    } else {
+      return (
+        <div className='nav-bar'>
+          <div className='nav-left'>
+            <Link to='/'>
+              <img className='nav-logo' src={window.images.logo_dark}/>
+            </Link>
+            <Link to='/'>
+              <button className='nav-button'>Discover</button>
+            </Link>
+            <Link to='/'>
+              <button className='nav-button'>About</button>
+            </Link>
+            <Link to='/'>
+              <button className='nav-button'>Studio</button>
+            </Link>
+          </div>
+          <div className='nav-right'>
+            <Link to='/login'>
+              <button id='login' className='login-button'>
+                Log in
+              </button>
+            </Link>
+            <Link to='/signup'>
+              <button id='signup' className='signup-button'>
+                Sign up
+              </button>
+            </Link>
+          </div>
+        </div>
+      );
+    }
+  }
+}

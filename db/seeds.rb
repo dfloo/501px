@@ -273,8 +273,8 @@ photo42.save
 
 photo43 = Photo.new(user_id: devin.id, title: 'Golden Gate Bridge',
   description: "If you're alive you can't be bored in San Francisco. If you're not alive, San Francisco will bring you to life.")
-photo43.attachedPhoto.attach(io: File.open("#{Rails.root}/app/assets/images/seed_data/D_Flood/Golden Gate Bridge.jpg"),
-  filename: 'Golden Gate Bridge.jpg')
+photo43.attachedPhoto.attach(io: File.open("#{Rails.root}/app/assets/images/seed_data/D_Flood/Golden-Gate-Bridge.jpg"),
+  filename: 'Golden-Gate-Bridge.jpg')
 photo43.save
 
 photo44 = Photo.new(user_id: devin.id, title: 'I Love Coding',
