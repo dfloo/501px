@@ -155,3 +155,21 @@
   height: 30px;
   padding: 4px;
 }
+
+.upload-description-label {
+  color: #0099e5;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+}
+
+.upload-description-input {
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid rgba(185,193,199,0.5);;
+  font-size: 14px;
+  color: #525558;
+  height: 30px;
+  padding: 4px;
+}

@@ -32,7 +32,6 @@ export default class PhotoIndex extends React.Component {
         <div className='photo-index-div'>
           <div className='photo-index-content'>
             <Gallery images={photos}
-              onClickThumbnail
               enableLightbox={false}
               enableImageSelection={false}
               rowHeight={280}

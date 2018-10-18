@@ -6,6 +6,7 @@ export default class UploadPhotoForm extends React.Component {
     super(props);
     this.state = {
       title: "",
+      description: "",
       photoFile: null,
       src: null
     }
@@ -21,8 +22,10 @@ export default class UploadPhotoForm extends React.Component {
 
   }
 
-  handleInput(e) {
-    this.setState({title: e.currentTarget.value});
+  handleInput(field) {
+    return (e) => {
+      this.setState({[field]: e.currentTarget.value});
+    };
   }
 
   handleFile(e) {
@@ -69,31 +72,24 @@ export default class UploadPhotoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('photo[user_id]', this.props.currentUser.id)
+    formData.append('photo[user_id]', this.props.currentUser.id);
     formData.append('photo[title]', this.state.title);
+    formData.append('photo[description]', this.state.description);
     if (this.state.photoFile) {
       formData.append('photo[attachedPhoto]', this.state.photoFile);
     }
+    debugger
+    this.props.createPhoto(formData);
 
-    $.ajax({
-      url: 'api/photos',
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false
-    }).then(
-      (response) => console.log(response.message),
-      (response) => console.log(response.responseJSON)
-    );
-
-    this.setState({
-      title: "",
-      photoFile: null,
-      src: null
-    }, () => {
-      const fileInput = document.getElementById('file-input');
-      fileInput.value = ''
-    });
+    // this.setState({
+    //   title: "",
+    //   description: "",
+    //   photoFile: null,
+    //   src: null
+    // }, () => {
+    //   const fileInput = document.getElementById('file-input');
+    //   fileInput.value = ''
+    // });
 
     const modal = document.getElementById('file-upload-modal');
     modal.classList.add('hidden');
@@ -166,8 +162,17 @@ export default class UploadPhotoForm extends React.Component {
               <input id='upload-title-input'
                 className='upload-title-input'
                 type='text'
-                onChange={this.handleInput}
+                onChange={this.handleInput('title')}
                 value={this.state.title}/>
+
+              <label htmlFor='upload-description-input'
+                className='upload-description-label'>Description
+              </label>
+              <textarea id='upload-description-input'
+                className='upload-description-input'
+                onChange={this.handleInput('description')}
+                value={this.state.description}>
+              </textarea>
             </div>
 
             <button id='upload-submit-btn'
