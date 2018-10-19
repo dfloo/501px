@@ -10,7 +10,7 @@ export default class PhotoIndex extends React.Component {
       currentPhoto: 0
     }
 
-    this.onCurrentPhotoChange = this.onCurrentPhotoChange.bind(this);
+    this.onCurrentImageChange = this.onCurrentImageChange.bind(this);
     this.renderShow = this.renderShow.bind(this);
   }
 
@@ -19,13 +19,27 @@ export default class PhotoIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (Object.values(this.props.photos).length != Object.values(prevProps.photos).length) {
-      this.setState({ photos: Object.values(this.props.photos) })
+    const shuffle = (a) => {
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        if (a[j] === undefined) {
+          continue
+        }
+        const x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+      }
+      return a;
+    }
+    const photos = Object.values(this.props.photos);
+
+    if (photos.length != Object.values(prevProps.photos).length) {
+      this.setState({ photos: shuffle(photos) })
     }
   }
 
-  onCurrentPhotoChange(idx) {
-        this.setState({ currentPhoto: idx });
+  onCurrentImageChange(idx) {
+    this.setState({ currentPhoto: idx });
   }
 
   renderShow() {
@@ -42,7 +56,7 @@ export default class PhotoIndex extends React.Component {
             <Gallery images={this.state.photos}
               enableLightbox={true}
               enableImageSelection={false}
-              currentImageWillChange={this.onCurrenPhotoChange}
+              currentImageWillChange={this.onCurrentImageChange}
               rowHeight={280}
               margin={5}
               customControls={[

@@ -19,6 +19,8 @@ class Photo < ApplicationRecord
 
   belongs_to :user
 
+  has_many :likes
+
   before_save :set_width, :set_height
 
   def set_width

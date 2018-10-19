@@ -27,6 +27,9 @@ export default class MainNav extends React.Component {
   handleLogout() {
     this.props.logout();
     this.props.history.push('/');
+    const splashPhotos = document.getElementById('splash-photos');
+    splashPhotos.classList.remove('hidden')
+
   }
 
   componentDidMount() {

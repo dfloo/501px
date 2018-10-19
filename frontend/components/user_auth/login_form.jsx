@@ -19,6 +19,8 @@ class LoginForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.login(user);
     this.props.history.push('/photos')
+    const splashPhotos = document.getElementById('splash-photos');
+    splashPhotos.classList.add('hidden')
   }
 
   renderErrors() {

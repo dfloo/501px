@@ -18,6 +18,18 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :followers,
+    primary_key: :id,
+    foreign_key: :follower_id,
+    class_name: :User
+
+  has_many :followees,
+    primary_key: :id,
+    foreign_key: :followee_id,
+    class_name: :User
+
+  has_many :likes
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)

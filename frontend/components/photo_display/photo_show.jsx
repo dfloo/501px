@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom';
 export default class PhotoShow extends React.Component {
   constructor(props) {
     super(props);
-
+    this.closeShow = this.closeShow.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchPhoto(this.props.match.params.photoId);
+  }
+
+  closeShow() {
+    this.props.history.push('/photos');
   }
 
   render() {
@@ -17,6 +21,8 @@ export default class PhotoShow extends React.Component {
       return (
         <div id='photo-show-modal'
           className=''>
+          <button className='close-show-button'
+            onClick={this.closeShow}>x</button>
           <div className='photo-show-modal-content'>
             <div className='photo-img'>
               <img src={photo.src} />
