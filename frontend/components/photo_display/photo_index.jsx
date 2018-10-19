@@ -5,47 +5,50 @@ export default class PhotoIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    let that = this;
-  }
+    this.state = {
+      photos: Object.values(this.props.photos),
+      currentPhoto: 0
+    }
 
-  handleClick(idx, e) {
-    const photoId = this.props.item.id;
-    e.view.history.replaceState(null, null, `/#/photos/${photoId}`);
-    location.reload();
+    this.onCurrentPhotoChange = this.onCurrentPhotoChange.bind(this);
+    this.renderShow = this.renderShow.bind(this);
   }
-
 
   componentDidMount() {
     this.props.fetchPhotos();
   }
 
+  componentDidUpdate(prevProps) {
+    if (Object.values(this.props.photos).length != Object.values(prevProps.photos).length) {
+      this.setState({ photos: Object.values(this.props.photos) })
+    }
+  }
+
+  onCurrentPhotoChange(idx) {
+        this.setState({ currentPhoto: idx });
+  }
+
+  renderShow() {
+    const thisPhoto = this.state.photos[this.state.currentPhoto]
+    this.props.history.push(`/photos/${thisPhoto.id}`)
+  }
+
   render() {
-    if (this.props.photos) {
-      const photos = Object.values(this.props.photos);
-
-      const shuffle = (arr) => {
-        for (let i = arr.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          const x = arr[i];
-          arr[i] = arr[j];
-          arr[j] = x;
-        }
-        return arr;
-      }
-
-      shuffle(photos);
-
-      let that = this;
+    if (this.state.photos.length > 0) {
 
       return (
         <div className='photo-index-div'>
           <div className='photo-index-content'>
-            <Gallery images={photos}
-              onClickThumbnail={this.handleClick}
-              enableLightbox={false}
+            <Gallery images={this.state.photos}
+              enableLightbox={true}
               enableImageSelection={false}
+              currentImageWillChange={this.onCurrenPhotoChange}
               rowHeight={280}
-              margin={5}/>
+              margin={5}
+              customControls={[
+                <button key="renderShow" onClick={this.renderShow}>Details</button>
+              ]}
+            />
           </div>
         </div>
       );
