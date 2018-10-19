@@ -8,19 +8,22 @@
 
 ## Features
   * Secure frontend to backend user authentication using BCrypt.
-  * Users can upload their favorite photos by selecting them from the file explorer or simply dragging an image file into the upload form.
-  * Users can edit the title, automatically generated from the filename, and add a description.
+  * Users can upload their favorite photos
+  * Users can edit the title (automatically generated from the filename) and add a description.
   * The feed randomly sorts the photos and arranges them into rows.
   * Clicking on a photo in the feed opens it up in a Lightbox that includes a link to the details page which contains additional info about the photo and user who uploaded it.
 
+### Drag and Drop Uploads
+![Drag and Drop Upload Demo](app/assets/images/drag-and-drop.jpg)
+
+  * User can upload images by selecting them from the file explorer or by dragging and dropping an image file onto the upload form.
+
 ### Dynamic Justified Photo Gallery
 
-![Justified Photo Gallery Demo](app/assets/images/justified-photo-gallery.png
+![Justified Photo Gallery Demo](app/assets/images/justified-photo-gallery.png)
 
   * The photos are arranged into rows with constant height, justified to the full width of the window with constant grid spacing while maintaining the original photos aspect ratio.
   * The number of photos in each row varies depending on to the screen width.
-
-
 
 ## Project Design
 
