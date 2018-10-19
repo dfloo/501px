@@ -10,7 +10,7 @@
 #
 
 class Like < ApplicationRecord
-  validates :photo_id, :user_id presence: true
+  validates :photo_id, :user_id,  presence: true
 
   belongs_to :user
   belongs_to :photo
