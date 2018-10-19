@@ -14,7 +14,7 @@
   * Clicking on a photo in the feed opens it up in a Lightbox that includes a link to the details page which contains additional info about the photo and user who uploaded it.
 
 ### Drag and Drop Uploads
-![Drag and Drop Upload Demo](app/assets/images/drag-and-drop.jpg)
+![Drag and Drop Upload Demo](app/assets/images/drag-and-drop.png)
 
   * User can upload images by selecting them from the file explorer or by dragging and dropping an image file onto the upload form.
 
