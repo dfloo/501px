@@ -34,7 +34,6 @@ export default class MainNav extends React.Component {
   }
 
   render() {
-    debugger
     if (this.props.currentUser) {
       return (
         <div className='nav-bar'>

@@ -7,9 +7,8 @@ const mapStateToProps = state => ({
     photos: state.entities.photos
 });
 
-
 const mapDispatchToProps = dispatch => ({
-  fetchPhotos: () =>dispatch(fetchPhotos())
+  fetchPhotos: () => dispatch(fetchPhotos())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Index);
