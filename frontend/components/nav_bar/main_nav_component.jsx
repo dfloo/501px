@@ -45,7 +45,7 @@ export default class MainNav extends React.Component {
             <button onClick={this.hideGreetingBox}>x</button>
           </div>
           <div className='nav-left'>
-            <Link to='/'>
+            <Link to='/photos'>
               <img className='nav-logo' src={window.images.logo_dark}/>
             </Link>
             <Link to='/'>
