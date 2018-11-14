@@ -18,12 +18,49 @@
 
   * User can upload images by selecting them from the file explorer or by dragging and dropping an image file onto the upload form.
 
+```javascript
+handleDrop(files) {
+  const file = files[0];
+  let photoTitle = file.name.split('.').slice(0, -1).join('.');
+  photoTitle = photoTitle.replace(/_/g, ' ');
+  photoTitle = photoTitle.replace(/-/g, ' ');
+  photoTitle = photoTitle.replace(/[0-9]/g, '');
+  const fileReader = new FileReader();
+  fileReader.onloadend = () => {
+    this.setState({
+      photoFile: file,
+      src: fileReader.result,
+      title: photoTitle
+    })
+  }
+  if (file) {
+    fileReader.readAsDataURL(file);
+    this.toggleHidden();
+  }
+}
+```
+
+
 ### Dynamic Justified Photo Gallery
 
 ![Justified Photo Gallery Demo](app/assets/images/justified-photo-gallery.png)
 
   * The photos are arranged into rows with constant height, justified to the full width of the window with constant grid spacing while maintaining the original photos aspect ratio.
   * The number of photos in each row varies depending on to the screen width.
+
+```html
+<Gallery images={this.state.photos}
+  enableLightbox={true}
+  enableImageSelection={false}
+  currentImageWillChange={this.onCurrentImageChange}
+  rowHeight={280}
+  margin={5}
+  customControls={[
+    <button key="renderShow" 
+    onClick={this.renderShow}>Details</button>
+  ]}
+/>
+```
 
 ## Project Design
 
