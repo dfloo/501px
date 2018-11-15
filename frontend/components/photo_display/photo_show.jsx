@@ -21,9 +21,11 @@ export default class PhotoShow extends React.Component {
       return (
         <div id='photo-show-modal'
           className=''>
-          <button className='close-show-button'
-            onClick={this.closeShow}>x</button>
           <div className='photo-show-modal-content'>
+            <img id='show-x'
+              src={window.images.xbtn} 
+              onClick={this.closeShow}
+            />
             <div className='photo-img'>
               <img src={photo.src} />
             </div>

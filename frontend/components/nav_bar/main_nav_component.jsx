@@ -38,43 +38,43 @@ export default class MainNav extends React.Component {
 
   render() {
     if (this.props.currentUser) {
-      return (
-        <div className='nav-bar'>
-          <div id='greeting' className='greeting'>
+      return <div className="nav-bar">
+          <div id="greeting" className="greeting">
             <h1>Welcome back, {this.props.currentUser.username}!</h1>
             <button onClick={this.hideGreetingBox}>x</button>
           </div>
-          <div className='nav-left'>
-            <Link to='/photos'>
-              <img className='nav-logo' src={window.images.logo_dark}/>
+          <div className="nav-left">
+            <Link to="/photos">
+              <img className="nav-logo" src={window.images.logo_dark} />
             </Link>
-            <Link to='/'>
-              <button className='nav-button'>Discover</button>
-            </Link>
-            <Link to='/'>
-              <button className='nav-button'>About</button>
-            </Link>
-            <Link to='/'>
-              <button className='nav-button'>Studio</button>
-            </Link>
+            <a href="https://www.linkedin.com/in/dfloo/">
+              <button className="nav-button">Discover</button>
+            </a>
+            <a href="https://github.com/dfloo/501px#readme">
+              <button className="nav-button">About</button>
+            </a>
+            <a href="https://github.com/dfloo">
+              <button className="nav-button">Studio</button>
+            </a>
           </div>
-          <div className='nav-right'>
-            <div className='dropdown'>
-              <img className='nav-avatar' src={window.images.avatar}/>
-              <ul className='dropdown-content'>
-                <li><button>My Profile</button></li>
-                <li><button onClick={this.handleLogout}>Logout</button></li>
+          <div className="nav-right">
+            <div className="dropdown">
+              <img className="nav-avatar" src={window.images.avatar} />
+              <ul className="dropdown-content">
+                <li>
+                  <button>My Profile</button>
+                </li>
+                <li>
+                  <button onClick={this.handleLogout}>Logout</button>
+                </li>
               </ul>
             </div>
-            <button className='upload-button'
-              onClick={this.showUploadModal}>Upload
+            <button className="upload-button" onClick={this.showUploadModal}>
+              Upload
             </button>
-            <img className='upload-sprite'
-              src={window.images.upload_img}
-              onClick={this.showUploadModal}/>
+            <img className="upload-sprite" src={window.images.upload_img} onClick={this.showUploadModal} />
           </div>
-        </div>
-      );
+        </div>;
 
     } else {
       return (
@@ -83,15 +83,15 @@ export default class MainNav extends React.Component {
             <Link to='/'>
               <img className='nav-logo' src={window.images.logo_dark}/>
             </Link>
-            <Link to='/'>
-              <button className='nav-button'>Discover</button>
-            </Link>
-            <Link to='/'>
-              <button className='nav-button'>About</button>
-            </Link>
-            <Link to='/'>
-              <button className='nav-button'>Studio</button>
-            </Link>
+            <a href="https://www.linkedin.com/in/dfloo/">
+              <button className="nav-button">Discover</button>
+            </a>
+            <a href="https://github.com/dfloo/501px#readme">
+              <button className="nav-button">About</button>
+            </a>
+            <a href="https://github.com/dfloo">
+              <button className="nav-button">Studio</button>
+            </a>
           </div>
           <div className='nav-right'>
             <Link to='/login'>
