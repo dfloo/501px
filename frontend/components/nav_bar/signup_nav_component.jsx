@@ -14,15 +14,15 @@ class SignupNav extends React.Component {
           <Link to='/'>
             <img className='nav-logo' src={window.images.logo_dark}/>
           </Link>
-          <Link to='/'>
-            <button className='nav-button'>Discover</button>
-          </Link>
-          <Link to='/'>
-            <button className='nav-button'>About</button>
-          </Link>
-          <Link to='/'>
-            <button className='nav-button'>Studio</button>
-          </Link>
+          <a href="https://www.linkedin.com/in/dfloo/">
+            <button className="nav-button">Discover</button>
+          </a>
+          <a href="https://github.com/dfloo/501px#readme">
+            <button className="nav-button">About</button>
+          </a>
+          <a href="https://github.com/dfloo">
+            <button className="nav-button">Studio</button>
+          </a>
         </div>
         <div className='nav-right'>
           <Link to='/login'>
