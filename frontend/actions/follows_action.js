@@ -14,7 +14,7 @@ const receiveFollow = follow => ({
   follow
 });
 
-const removeFollow = followId => ({
+const deleteFollow = followId => ({
   type: RECEIVE_FOLLOW,
   followId
 });
@@ -34,6 +34,6 @@ export const createFollow = follow => dispatch => (
 
 export const deleteFollow = followId => dispatch => (
   FollowUtil.deleteFollow(followId).then(followId => (
-    dispatch(removeFollow(followId).then())
+    dispatch(deleteFollow(followId))
   ))
 );

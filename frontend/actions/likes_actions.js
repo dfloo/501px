@@ -1,18 +1,37 @@
 import * as LikeUtil from "../util/likes_util";
 
-export const RECEIVE_like = "RECEIVE_like";
-export const REMOVE_like = "REMOVE_like";
+export const RECEIVE_LIKE = "RECEIVE_LIKE";
+export const REMOVE_LIKE = "REMOVE_LIKE";
 
-const removelike = likeId => ({
-  type: RECEIVE_like,
+const receiveLikes = likes => ({
+  type: RECEIVE_LIKES,
+  likes
+});
+
+const receiveLike = like => ({
+  type: RECEIVE_LIKE,
+  like
+});
+
+const deleteLike = likeId => ({
+  type: RECEIVE_LIKE,
   likeId
 });
 
-export const fetchlikes = () => dispatch =>
-  likeUtil.fetchlike().then(like => dispatch(receivelikes(like)));
+export const fetchLikes = () => dispatch => (
+  LikeUtil.fetchLikes().then(likes => (
+    dispatch(receiveLikes(likes))
+  ))
+);
 
-export const deletePhoto = photoId => dispatch => (
-  PhotoUtil.deletePhoto(photoId).then(photo => (
-    dispatch(removePhoto(photoId).then())
+export const createLike = like => dispatch => (
+  LikeUtil.createLike(like).then(like => (
+    dispatch(receiveLike(like))
+  ))
+);
+
+export const deleteLike = likeId => dispatch => (
+  LikeUtil.deleteLike(likeId).then(likeId => (
+    dispatch(deleteLike(likeId))
   ))
 );
