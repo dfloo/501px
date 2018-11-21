@@ -318,3 +318,6 @@ photo50 = Photo.new(user_id: devin.id, title: 'Laptops Are Cool',
 photo50.attachedPhoto.attach(io: File.open("#{Rails.root}/app/assets/images/seed_data/D_Flood/Laptops-Are-Cool.jpg"),
   filename: 'Laptops-Are-Cool.jpg')
 photo50.save
+
+
+

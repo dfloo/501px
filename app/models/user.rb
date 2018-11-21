@@ -18,17 +18,25 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :followers,
-    primary_key: :id,
-    foreign_key: :follower_id,
-    class_name: :User
-
-  has_many :followees,
-    primary_key: :id,
-    foreign_key: :followee_id,
-    class_name: :User
-
   has_many :likes
+
+  has_many :active_relationships, 
+    class_name: :Relationship,
+    foreign_key: :follower_id,
+    dependent: :destroy
+
+  has_many :passive_relationships, 
+    class_name: :Relationship,
+    foreign_key: :followed_id,
+    dependent: :destroy
+
+  has_many :following, 
+    through: :active_relationships,
+    source: :followed
+  
+  has_many :followers, 
+    through: :passive_relationships,
+    source: :follower
 
   attr_reader :password
 

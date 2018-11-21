@@ -1,23 +1,19 @@
 # == Schema Information
 #
-# Table name: follows
+# Table name: relationships
 #
 #  id          :bigint(8)        not null, primary key
 #  follower_id :string           not null
-#  followee_id :string           not null
+#  followed_id :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
-class Follow < ApplicationRecord
+class Relationship < ApplicationRecord
 
   belongs_to :follower,
-    primary_key: :id,
-    foreign_key: :follower_id,
     class_name: :User
 
-  belongs_to :followee,
-    primary_key: :id,
-    foreign_key: :followee_id,
+  belongs_to :followed,
     class_name: :User
 end

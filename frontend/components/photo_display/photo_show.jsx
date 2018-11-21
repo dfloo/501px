@@ -9,6 +9,8 @@ export default class PhotoShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchPhoto(this.props.match.params.photoId);
+    debugger
+
   }
 
   closeShow() {
@@ -40,12 +42,12 @@ export default class PhotoShow extends React.Component {
               <div className='likes-button-div'>
                 <img className='show-likes-heart'
                   src={window.images.white_heart}/>
-                <button>1,476</button>
+                <button>{this.props.photo.likes}</button>
               </div>
               <div className='likes-info-div'>
                 <img className='show-likes-heart2'
                   src={window.images.solid_heart}/>
-                <h2>user and 1467 others.</h2>
+                <h2>user and {1467} others.</h2>
               </div>
 
               <div className='show-info-div'>
